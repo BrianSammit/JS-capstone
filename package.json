@@ -1,0 +1,50 @@
+{
+  "name": "js-capstone",
+  "version": "1.0.0",
+  "description": "This is a endless run game",
+  "main": "index.js",
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "stylelint": "^13.13.0",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.19.0"
+  },
+  "devDependencies": {
+    "babel-core": "6",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "7.0.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "raw-loader": "^0.5.1",
+    "stylelint": "^13.13.0",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.19.0",
+    "webpack": "^3.4.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^2.11.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "jest-watch": "jest --watch",
+    "watch": "webpack --watch",
+    "start": "webpack serve --open chrome",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrianSammit/JS-capstone.git"
+  },
+  "author": "Brian Sammit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrianSammit/JS-capstone/issues"
+  },
+  "homepage": "https://github.com/BrianSammit/JS-capstone#readme"
+}
