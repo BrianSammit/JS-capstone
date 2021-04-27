@@ -22,11 +22,16 @@ class Game extends Phaser.Scene {
       .setCollideWorldBounds(true)
       .setGravityY(5000);
     this.zombie.scale = 0.3;
-    this.input.keyboard.on("keydown-SPACE", this.jump, this);
+    this.handleImputs();
   }
 
-  jump() {
-    this.zombie.setVelocityY(-1600);
+  handleImputs() {
+    this.input.keyboard.on("keydown-SPACE", () => {
+      if (!this.zombie.body.onFloor()) {
+        return;
+      }
+      this.zombie.setVelocityY(-1600);
+    });
   }
 
   update() {
