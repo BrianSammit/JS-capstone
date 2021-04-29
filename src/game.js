@@ -46,7 +46,24 @@ class Game extends Phaser.Scene {
       if (!this.zombie.body.onFloor()) {
         return;
       }
+
+      this.zombie.body.height = 160;
+      this.zombie.body.offset.y = 0;
+
       this.zombie.setVelocityY(-1600);
+    });
+
+    this.input.keyboard.on("keydown-DOWN", () => {
+      if (!this.zombie.body.onFloor()) {
+        return;
+      }
+      this.zombie.body.height = 80;
+      this.zombie.body.offset.y = 80;
+    });
+
+    this.input.keyboard.on("keyup-DOWN", () => {
+      this.zombie.body.height = 160;
+      this.zombie.body.offset.y = 0;
     });
   }
 
