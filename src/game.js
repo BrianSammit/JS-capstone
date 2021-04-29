@@ -7,6 +7,7 @@ class Game extends Phaser.Scene {
     this.load.image("ground", "assets/ground.png");
     this.load.image("zombie-1", "assets/Animation/Idle1.png");
     this.load.image("zombie-jump", "assets/Animation/Jump5.png");
+    this.load.image("zombie-down", "assets/Animation/Jump6.png");
 
     this.load.spritesheet("zombie", "assets/spritesheet.png", {
       frameWidth: 99,
@@ -72,9 +73,11 @@ class Game extends Phaser.Scene {
 
     if (this.zombie.body.deltaAbsY() > 0) {
       this.zombie.anims.stop();
-      this.zombie.setTexture("zombie");
+      this.zombie.setTexture("zombie-jump");
     } else {
-      this.zombie.play("zombie-run", true);
+      this.zombie.body.height <= 81
+        ? this.zombie.setTexture("zombie-down")
+        : this.zombie.play("zombie-run", true);
     }
   }
 }
