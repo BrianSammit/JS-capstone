@@ -10,6 +10,12 @@ module.exports = {
     filename: "main.js",
   },
 
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    port: 9000,
+  },
+
   module: {
     rules: [
       {

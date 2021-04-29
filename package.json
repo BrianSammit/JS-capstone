@@ -9,6 +9,7 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "phaser": "^3.54.0",
+    "serve": "^11.3.2",
     "stylelint": "^13.13.0",
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
@@ -29,14 +30,16 @@
     "stylelint-scss": "^3.19.0",
     "webpack": "^3.4.1",
     "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^2.11.0"
+    "webpack-dev-server": "^2.11.0",
+    "serve": "^11.3.2"
   },
   "scripts": {
     "test": "jest",
     "jest-watch": "jest --watch",
     "watch": "webpack --watch",
-    "start": "webpack serve --open chrome",
-    "build": "webpack"
+    "dev": "webpack ",
+    "build": "webpack ",
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",

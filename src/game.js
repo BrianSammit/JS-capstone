@@ -4,8 +4,14 @@ class Game extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("ground", "../dist/assets/ground.png");
-    this.load.image("zombie-1", "../dist/assets/animation/Run3.png");
+    this.load.image("ground", "assets/ground.png");
+    this.load.image("zombie-1", "assets/Animation/Idle1.png");
+    this.load.image("zombie-jump", "assets/Animation/Jump5.png");
+
+    this.load.spritesheet("zombie", "assets/spritesheet.png", {
+      frameWidth: 100,
+      frameHeight: 170,
+    });
   }
 
   create() {
@@ -21,8 +27,18 @@ class Game extends Phaser.Scene {
       .setOrigin(0, 1)
       .setCollideWorldBounds(true)
       .setGravityY(5000);
-    this.zombie.scale = 0.3;
+
+    this.initAnims();
     this.handleImputs();
+  }
+
+  initAnims() {
+    this.anims.create({
+      key: "zombie-run",
+      frames: this.anims.generateFrameNumbers("zombie", { start: 0, end: 5 }),
+      frameRate: 10,
+      repeat: -1,
+    });
   }
 
   handleImputs() {
@@ -36,6 +52,13 @@ class Game extends Phaser.Scene {
 
   update() {
     this.ground.tilePositionX += this.gameSpeed;
+
+    if (this.zombie.body.deltaAbsY() > 0) {
+      this.zombie.anims.stop();
+      this.zombie.setTexture("zombie");
+    } else {
+      this.zombie.play("zombie-run", true);
+    }
   }
 }
 
