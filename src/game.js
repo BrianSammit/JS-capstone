@@ -9,8 +9,8 @@ class Game extends Phaser.Scene {
     this.load.image("zombie-jump", "assets/Animation/Jump5.png");
 
     this.load.spritesheet("zombie", "assets/spritesheet.png", {
-      frameWidth: 100,
-      frameHeight: 170,
+      frameWidth: 99,
+      frameHeight: 160,
     });
   }
 
@@ -35,8 +35,8 @@ class Game extends Phaser.Scene {
   initAnims() {
     this.anims.create({
       key: "zombie-run",
-      frames: this.anims.generateFrameNumbers("zombie", { start: 0, end: 5 }),
-      frameRate: 10,
+      frames: this.anims.generateFrameNumbers("zombie", { start: 0, end: 3 }),
+      frameRate: 8,
       repeat: -1,
     });
   }
