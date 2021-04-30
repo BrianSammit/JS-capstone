@@ -19,6 +19,10 @@ class Game extends Phaser.Scene {
     this.gameSpeed = 10;
     const { height, width } = this.game.config;
 
+    this.startTrigger = this.physics.add
+      .sprite(0, 10)
+      .setOrigin(0, 1)
+      .setImmovable();
     this.ground = this.add
       .tileSprite(0, height, width, 0, "ground")
       .setOrigin(0, 1);
@@ -30,7 +34,27 @@ class Game extends Phaser.Scene {
       .setGravityY(5000);
 
     this.initAnims();
+    this.initAnimsStartTrigger();
     this.handleImputs();
+  }
+
+  initAnimsStartTrigger() {
+    const { width, height } = this.game.config;
+    this.physics.add.overlap(
+      this.startTrigger,
+      this.zombie,
+      () => {
+        if (this.startTrigger.y === 10) {
+          this.startTrigger.body.reset(0, height);
+          return;
+        }
+
+        this.startTrigger.disableBody(true, true);
+        console.log("hiting the box");
+      },
+      null,
+      this
+    );
   }
 
   initAnims() {
@@ -58,8 +82,8 @@ class Game extends Phaser.Scene {
       if (!this.zombie.body.onFloor()) {
         return;
       }
-      this.zombie.body.height = 80;
-      this.zombie.body.offset.y = 80;
+      this.zombie.body.height = 70;
+      this.zombie.body.offset.y = 90;
     });
 
     this.input.keyboard.on("keyup-DOWN", () => {
