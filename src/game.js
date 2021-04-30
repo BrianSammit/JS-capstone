@@ -8,6 +8,14 @@ class Game extends Phaser.Scene {
     this.load.image("zombie-1", "assets/Animation/Idle1.png");
     this.load.image("zombie-jump", "assets/Animation/Jump5.png");
     this.load.image("zombie-down", "assets/Animation/Jump6.png");
+    this.load.image("bullet", "assets/bullet.png");
+
+    this.load.image("obsticle-1", "assets/obsticle-1.png");
+    this.load.image("obsticle-2", "assets/obsticle-2.png");
+    this.load.image("obsticle-3", "assets/obsticle-3.png");
+    this.load.image("obsticle-4", "assets/obsticle-4.png");
+    this.load.image("obsticle-5", "assets/obsticle-5.png");
+    this.load.image("obsticle-6", "assets/obsticle-6.png");
 
     this.load.spritesheet("zombie", "assets/spritesheet.png", {
       frameWidth: 99,
@@ -17,7 +25,8 @@ class Game extends Phaser.Scene {
 
   create() {
     this.isGameRunning = false;
-    this.gameSpeed = 10;
+    this.gameSpeed = 8;
+    this.respawnTime = 0;
     const { height, width } = this.game.config;
 
     this.startTrigger = this.physics.add
@@ -32,6 +41,8 @@ class Game extends Phaser.Scene {
       .setOrigin(0, 1)
       .setCollideWorldBounds(true)
       .setGravityY(5000);
+
+    this.obsticles = this.physics.add.group();
 
     this.initAnims();
     this.initAnimsStartTrigger();
@@ -112,11 +123,43 @@ class Game extends Phaser.Scene {
     });
   }
 
-  update() {
+  placeObsticles() {
+    const { width, height } = this.game.config;
+    const obsticleNum = Math.floor(Math.random() * 7) + 1;
+    const distance = Phaser.Math.Between(600, 900);
+
+    let obsticle;
+    if (obsticleNum > 6) {
+      const enemyHeight = [22, 50];
+      obsticle = this.obsticles.create(
+        width + distance,
+        height - enemyHeight[Math.floor(Math.random) * 2],
+        "bullet"
+      );
+    } else {
+      obsticle = this.obsticles.create(
+        width + distance,
+        height,
+        `obsticle-${obsticleNum}`
+      );
+      obsticle.body.offset.y = +10;
+    }
+
+    obsticle.setOrigin(0, 1).setImmovable();
+  }
+
+  update(time, delta) {
     if (!this.isGameRunning) {
       return;
     }
     this.ground.tilePositionX += this.gameSpeed;
+    Phaser.Actions.IncX(this.obsticles.getChildren(), -this.gameSpeed);
+    this.respawnTime += delta * this.gameSpeed * 0.08;
+
+    if (this.respawnTime >= 1500) {
+      this.placeObsticles();
+      this.respawnTime = 0;
+    }
 
     if (this.zombie.body.deltaAbsY() > 0) {
       this.zombie.anims.stop();
