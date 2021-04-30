@@ -180,6 +180,13 @@ class Game extends Phaser.Scene {
       this.respawnTime = 0;
     }
 
+    this.obsticles.getChildren().forEach((obsticle) => {
+      if (obsticle.getBounds().right < 0) {
+        console.log("destroy");
+        obsticle.destroy();
+      }
+    });
+
     if (this.zombie.body.deltaAbsY() > 0) {
       this.zombie.anims.stop();
       this.zombie.setTexture("zombie-jump");
