@@ -8,6 +8,7 @@ class Game extends Phaser.Scene {
     this.load.image("zombie-1", "assets/Animation/Idle1.png");
     this.load.image("zombie-jump", "assets/Animation/Jump5.png");
     this.load.image("zombie-down", "assets/Animation/Jump6.png");
+    this.load.image("zombie-hurt", "assets/Animation/Hurt4.png");
     this.load.image("bullet", "assets/bullet.png");
 
     this.load.image("obsticle-1", "assets/obsticle-1.png");
@@ -25,7 +26,7 @@ class Game extends Phaser.Scene {
 
   create() {
     this.isGameRunning = false;
-    this.gameSpeed = 8;
+    this.gameSpeed = 10;
     this.respawnTime = 0;
     const { height, width } = this.game.config;
 
@@ -45,8 +46,26 @@ class Game extends Phaser.Scene {
     this.obsticles = this.physics.add.group();
 
     this.initAnims();
+    this.initColliders();
     this.initAnimsStartTrigger();
     this.handleImputs();
+  }
+
+  initColliders() {
+    this.physics.add.collider(
+      this.zombie,
+      this.obsticles,
+      () => {
+        this.physics.pause();
+        this.isGameRunning = false;
+        this.anims.pauseAll();
+        this.zombie.setTexture("zombie-hurt");
+        this.respawnTime = 0;
+        this.gameSpeed = 10;
+      },
+      null,
+      this
+    );
   }
 
   initAnimsStartTrigger() {
@@ -130,10 +149,10 @@ class Game extends Phaser.Scene {
 
     let obsticle;
     if (obsticleNum > 6) {
-      const enemyHeight = [22, 50];
+      const enemyHeight = [25, 80];
       obsticle = this.obsticles.create(
         width + distance,
-        height - enemyHeight[Math.floor(Math.random) * 2],
+        height - enemyHeight[Math.floor(Math.random() * 2)],
         "bullet"
       );
     } else {
