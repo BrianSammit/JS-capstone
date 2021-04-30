@@ -25,9 +25,8 @@ class Game extends Phaser.Scene {
       .setOrigin(0, 1)
       .setImmovable();
     this.ground = this.add
-      .tileSprite(0, height, 250, 480, "ground")
+      .tileSprite(0, height, 150, 72, "ground")
       .setOrigin(0, 1);
-    this.ground.scale = 0.5;
     this.zombie = this.physics.add
       .sprite(0, height, "zombie-1")
       .setOrigin(0, 1)
