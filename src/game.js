@@ -16,6 +16,7 @@ class Game extends Phaser.Scene {
   }
 
   create() {
+    this.isGameRunning = false;
     this.gameSpeed = 10;
     const { height, width } = this.game.config;
 
@@ -24,7 +25,7 @@ class Game extends Phaser.Scene {
       .setOrigin(0, 1)
       .setImmovable();
     this.ground = this.add
-      .tileSprite(0, height, width, 0, "ground")
+      .tileSprite(0, height, 250, 480, "ground")
       .setOrigin(0, 1);
     this.ground.scale = 0.5;
     this.zombie = this.physics.add
@@ -50,7 +51,27 @@ class Game extends Phaser.Scene {
         }
 
         this.startTrigger.disableBody(true, true);
-        console.log("hiting the box");
+
+        const startEvent = this.time.addEvent({
+          delay: 1000 / 60,
+          loop: true,
+          callbackScope: this,
+          callback: () => {
+            this.zombie.setVelocityX(80);
+            this.zombie.play("zombie-run", 1);
+
+            if (this.ground.width < width) {
+              this.ground.width += 17 * 2;
+            }
+
+            if (this.ground.width >= width) {
+              this.ground.width = width;
+              this.isGameRunning = true;
+              this.zombie.setVelocity(0);
+              startEvent.remove();
+            }
+          },
+        });
       },
       null,
       this
@@ -93,6 +114,9 @@ class Game extends Phaser.Scene {
   }
 
   update() {
+    if (!this.isGameRunning) {
+      return;
+    }
     this.ground.tilePositionX += this.gameSpeed;
 
     if (this.zombie.body.deltaAbsY() > 0) {
