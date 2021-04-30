@@ -106,7 +106,7 @@ class Game extends Phaser.Scene {
       this.zombie.body.height = 160;
       this.zombie.body.offset.y = 0;
 
-      this.zombie.setVelocityY(-1600);
+      this.zombie.setVelocityY(-2000);
     });
 
     this.input.keyboard.on("keydown-DOWN", () => {

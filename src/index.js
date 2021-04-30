@@ -4,8 +4,8 @@ import Game from "./game.js";
 
 const config = {
   type: Phaser.AUTO,
-  width: 1000,
-  height: 400,
+  width: 1100,
+  height: 550,
   pixelArt: true,
   transparent: true,
   scene: [Game],
