@@ -16,7 +16,7 @@ class Game extends Phaser.Scene {
     this.load.image("bullet", "assets/bullet.png");
     this.load.image("restart", "assets/restart.png");
     this.load.image("game-over", "assets/game-over.png");
-    this.load.image("background", "assets/back-2.jpg");
+    this.load.image("background", "assets/back-1.jpg");
 
     this.load.image("obsticle-1", "assets/obsticle-1.png");
     this.load.image("obsticle-2", "assets/obsticle-2.png");
