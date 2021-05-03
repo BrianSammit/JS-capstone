@@ -10,6 +10,8 @@ class Game extends Phaser.Scene {
     this.load.image("zombie-down", "assets/Animation/Jump6.png");
     this.load.image("zombie-hurt", "assets/Animation/Hurt4.png");
     this.load.image("bullet", "assets/bullet.png");
+    this.load.image("restart", "assets/restart.png");
+    this.load.image("game-over", "assets/game-over.png");
 
     this.load.image("obsticle-1", "assets/obsticle-1.png");
     this.load.image("obsticle-2", "assets/obsticle-2.png");
@@ -43,6 +45,14 @@ class Game extends Phaser.Scene {
       .setCollideWorldBounds(true)
       .setGravityY(5000);
 
+    this.gameOverScreen = this.add
+      .container(width / 2, height / 2 - 50)
+      .setAlpha(0);
+    this.gameOverText = this.add.image(0, 0, "game-over");
+    this.restart = this.add.image(0, 80, "restart").setInteractive();
+
+    this.gameOverScreen.add([this.gameOverText, this.restart]);
+
     this.obsticles = this.physics.add.group();
 
     this.initAnims();
@@ -62,6 +72,7 @@ class Game extends Phaser.Scene {
         this.zombie.setTexture("zombie-hurt");
         this.respawnTime = 0;
         this.gameSpeed = 10;
+        this.gameOverScreen.setAlpha(1);
       },
       null,
       this
@@ -117,6 +128,17 @@ class Game extends Phaser.Scene {
   }
 
   handleImputs() {
+    this.restart.on("pointerdown", () => {
+      this.zombie.setVelocityY(0);
+      this.zombie.body.height = 160;
+      this.zombie.body.offset.y = 0;
+      this.physics.resume();
+      this.obsticles.clear(true, true);
+      this.isGameRunning = true;
+      this.gameOverScreen.setAlpha(0);
+      this.anims.resumeAll();
+    });
+
     this.input.keyboard.on("keydown-SPACE", () => {
       if (!this.zombie.body.onFloor()) {
         return;
