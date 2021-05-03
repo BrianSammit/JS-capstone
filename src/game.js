@@ -5,8 +5,9 @@ class Game extends Phaser.Scene {
 
   preload() {
     this.load.audio("jump", "assets/jump.m4a");
-    this.load.audio("hit", "assets/hit.m4a");
-    this.load.audio("reach", "assets/reach.m4a");
+    this.load.audio("hit", "assets/hit.mp3");
+    this.load.audio("reach", "assets/reach.mp3");
+    this.load.audio("horda", "assets/Zombie.mp3");
 
     this.load.image("ground", "assets/ground.png");
     this.load.image("zombie-1", "assets/Animation/Idle1.png");
@@ -40,9 +41,10 @@ class Game extends Phaser.Scene {
 
     const { height, width } = this.game.config;
 
-    this.jumpSound = this.sound.add("jump", { volume: 1 });
+    this.jumpSound = this.sound.add("jump", { volume: 0.5 });
     this.hitSound = this.sound.add("hit", { volume: 1 });
     this.reachSound = this.sound.add("reach", { volume: 1 });
+    this.hordaSound = this.sound.add("horda", { volume: 0.5 });
 
     this.startTrigger = this.physics.add
       .sprite(0, 10)
@@ -167,6 +169,7 @@ class Game extends Phaser.Scene {
             if (this.ground.width >= width) {
               this.ground.width = width;
               this.isGameRunning = true;
+              this.hordaSound.play();
               this.zombie.setVelocity(0);
               this.scoreText.setAlpha(1);
               startEvent.remove();
