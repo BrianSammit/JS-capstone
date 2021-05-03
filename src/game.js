@@ -16,7 +16,7 @@ class Game extends Phaser.Scene {
     this.load.image("bullet", "assets/bullet.png");
     this.load.image("restart", "assets/restart.png");
     this.load.image("game-over", "assets/game-over.png");
-    this.load.image("cloud", "assets/cloud.png");
+    this.load.image("background", "assets/back-2.jpg");
 
     this.load.image("obsticle-1", "assets/obsticle-1.png");
     this.load.image("obsticle-2", "assets/obsticle-2.png");
@@ -34,6 +34,7 @@ class Game extends Phaser.Scene {
   create() {
     this.isGameRunning = false;
     this.gameSpeed = 10;
+    this.backSpeed = 0.3;
     this.respawnTime = 0;
     this.score = 0;
 
@@ -47,9 +48,16 @@ class Game extends Phaser.Scene {
       .sprite(0, 10)
       .setOrigin(0, 1)
       .setImmovable();
+
     this.ground = this.add
-      .tileSprite(0, height, 150, 72, "ground")
+      .tileSprite(0, height, 150, 72, "ground", "solid")
+      .setOrigin(0, 1)
+      .setDepth(0.5);
+
+    this.background = this.add
+      .tileSprite(0, height, 150, 540, "background")
       .setOrigin(0, 1);
+
     this.zombie = this.physics.add
       .sprite(0, height, "zombie-1")
       .setOrigin(0, 1)
@@ -81,15 +89,6 @@ class Game extends Phaser.Scene {
       .setAlpha(0);
     this.gameOverText = this.add.image(0, 0, "game-over");
     this.restart = this.add.image(0, 200, "restart").setInteractive();
-
-    this.enviroment = this.add.group();
-    this.enviroment.addMultiple([
-      this.add.image(width / 2, 170, "cloud"),
-      this.add.image(width - 80, 80, "cloud"),
-      this.add.image(width / 1.3, 100, "cloud"),
-    ]);
-
-    this.enviroment.setAlpha(0);
 
     this.gameOverScreen.add([this.gameOverText, this.restart]);
 
@@ -161,12 +160,20 @@ class Game extends Phaser.Scene {
               this.ground.width += 17 * 2;
             }
 
+            if (this.background.width < width) {
+              this.background.width += 17 * 2;
+            }
+
             if (this.ground.width >= width) {
               this.ground.width = width;
               this.isGameRunning = true;
               this.zombie.setVelocity(0);
               this.scoreText.setAlpha(1);
-              this.enviroment.setAlpha(1);
+              startEvent.remove();
+            }
+
+            if (this.background.width >= width) {
+              this.background.width = width;
               startEvent.remove();
             }
           },
@@ -281,7 +288,7 @@ class Game extends Phaser.Scene {
       obsticle.body.offset.y = +10;
     }
 
-    obsticle.setOrigin(0, 1).setImmovable();
+    obsticle.setOrigin(0, 1).setImmovable().setDepth(1);
   }
 
   update(time, delta) {
@@ -290,8 +297,9 @@ class Game extends Phaser.Scene {
     }
     this.ground.tilePositionX += this.gameSpeed;
 
+    this.background.tilePositionX += this.backSpeed;
+
     Phaser.Actions.IncX(this.obsticles.getChildren(), -this.gameSpeed);
-    Phaser.Actions.IncX(this.enviroment.getChildren(), -0.5);
 
     this.respawnTime += delta * this.gameSpeed * 0.08;
 
@@ -303,12 +311,6 @@ class Game extends Phaser.Scene {
     this.obsticles.getChildren().forEach((obsticle) => {
       if (obsticle.getBounds().right < 0) {
         obsticle.destroy();
-      }
-    });
-
-    this.enviroment.getChildren().forEach((env) => {
-      if (env.getBounds().right < 0) {
-        env.x = this.game.config.width + 30;
       }
     });
 
