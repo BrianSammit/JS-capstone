@@ -44,7 +44,7 @@ class Game extends Phaser.Scene {
     this.jumpSound = this.sound.add("jump", { volume: 0.5 });
     this.hitSound = this.sound.add("hit", { volume: 1 });
     this.reachSound = this.sound.add("reach", { volume: 1 });
-    this.hordaSound = this.sound.add("horda", { volume: 0.5 });
+    this.hordaSound = this.sound.add("horda", { volume: 0.5, loop: true });
 
     this.startTrigger = this.physics.add
       .sprite(0, 10)
@@ -52,7 +52,7 @@ class Game extends Phaser.Scene {
       .setImmovable();
 
     this.ground = this.add
-      .tileSprite(0, height, 150, 72, "ground", "solid")
+      .tileSprite(0, height, 150, 72, "ground")
       .setOrigin(0, 1)
       .setDepth(0.5);
 
