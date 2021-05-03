@@ -53,6 +53,8 @@ class Game extends Phaser.Scene {
     this.zombie = this.physics.add
       .sprite(0, height, "zombie-1")
       .setOrigin(0, 1)
+      .setBodySize(44, 160)
+      .setDepth(1)
       .setCollideWorldBounds(true)
       .setGravityY(5000);
 
@@ -78,7 +80,7 @@ class Game extends Phaser.Scene {
       .container(width / 2, height / 2 - 50)
       .setAlpha(0);
     this.gameOverText = this.add.image(0, 0, "game-over");
-    this.restart = this.add.image(0, 80, "restart").setInteractive();
+    this.restart = this.add.image(0, 200, "restart").setInteractive();
 
     this.enviroment = this.add.group();
     this.enviroment.addMultiple([
