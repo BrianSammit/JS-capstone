@@ -30,6 +30,8 @@ class Game extends Phaser.Scene {
     this.isGameRunning = false;
     this.gameSpeed = 10;
     this.respawnTime = 0;
+    this.score = 0;
+
     const { height, width } = this.game.config;
 
     this.startTrigger = this.physics.add
@@ -45,6 +47,24 @@ class Game extends Phaser.Scene {
       .setCollideWorldBounds(true)
       .setGravityY(5000);
 
+    this.scoreText = this.add
+      .text(width, 0, "00000", {
+        fill: "#535353",
+        font: "900 35px Courier",
+        resolution: 5,
+      })
+      .setOrigin(1, 0)
+      .setAlpha(0);
+
+    this.highScoreText = this.add
+      .text(width, 0, "00000", {
+        fill: "#535353",
+        font: "900 35px Courier",
+        resolution: 5,
+      })
+      .setOrigin(1, 0)
+      .setAlpha(0);
+
     this.gameOverScreen = this.add
       .container(width / 2, height / 2 - 50)
       .setAlpha(0);
@@ -59,6 +79,7 @@ class Game extends Phaser.Scene {
     this.initColliders();
     this.initAnimsStartTrigger();
     this.handleImputs();
+    this.handleScore();
   }
 
   initColliders() {
@@ -66,6 +87,20 @@ class Game extends Phaser.Scene {
       this.zombie,
       this.obsticles,
       () => {
+        this.highScoreText.x = this.scoreText.x - this.scoreText.width - 20;
+
+        const highScore = this.highScoreText.text.substr(
+          this.highScoreText.text.length - 5
+        );
+
+        const newScore =
+          Number(this.scoreText.text) > Number(highScore)
+            ? this.scoreText.text
+            : highScore;
+
+        this.highScoreText.setText("HI " + newScore);
+        this.highScoreText.setAlpha(1);
+
         this.physics.pause();
         this.isGameRunning = false;
         this.anims.pauseAll();
@@ -73,6 +108,7 @@ class Game extends Phaser.Scene {
         this.respawnTime = 0;
         this.gameSpeed = 10;
         this.gameOverScreen.setAlpha(1);
+        this.score = 0;
       },
       null,
       this
@@ -108,6 +144,7 @@ class Game extends Phaser.Scene {
               this.ground.width = width;
               this.isGameRunning = true;
               this.zombie.setVelocity(0);
+              this.scoreText.setAlpha(1);
               startEvent.remove();
             }
           },
@@ -127,6 +164,29 @@ class Game extends Phaser.Scene {
     });
   }
 
+  handleScore() {
+    this.time.addEvent({
+      delay: 1000 / 10,
+      loop: true,
+      callbackScope: this,
+      callback: () => {
+        if (!this.isGameRunning) {
+          return;
+        }
+
+        this.score++;
+        this.gameSpeed += 0.01;
+
+        const score = Array.from(String(this.score), Number);
+        for (let i = 0; i < 5 - String(this.score).length; i++) {
+          score.unshift(0);
+        }
+
+        this.scoreText.setText(score.join(""));
+      },
+    });
+  }
+
   handleImputs() {
     this.restart.on("pointerdown", () => {
       this.zombie.setVelocityY(0);
@@ -140,7 +200,7 @@ class Game extends Phaser.Scene {
     });
 
     this.input.keyboard.on("keydown-SPACE", () => {
-      if (!this.zombie.body.onFloor()) {
+      if (!this.zombie.body.onFloor() || this.zombie.body.velocity.x > 0) {
         return;
       }
 
@@ -151,7 +211,7 @@ class Game extends Phaser.Scene {
     });
 
     this.input.keyboard.on("keydown-DOWN", () => {
-      if (!this.zombie.body.onFloor()) {
+      if (!this.zombie.body.onFloor() || !this.isGameRunning) {
         return;
       }
       this.zombie.body.height = 70;
