@@ -1,20 +1,15 @@
 import Phaser from "phaser";
+import config from "./config/config";
+import GameScene from "./scenes/gameScene.js";
 
-import Game from "./game.js";
+class Game extends Phaser.Game {
+  constructor() {
+    super(config);
+    this.scene.add("Game", GameScene);
+    this.scene.start("Game");
+  }
+}
 
-const config = {
-  type: Phaser.AUTO,
-  width: 1100,
-  height: 540,
-  pixelArt: true,
-  transparent: true,
-  scene: [Game],
-  physics: {
-    default: "arcade",
-    arcade: {
-      debug: false,
-    },
-  },
+window.onload = function () {
+  window.game = new Game();
 };
-
-let game = new Phaser.Game(config);
