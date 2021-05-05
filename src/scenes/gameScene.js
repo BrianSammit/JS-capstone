@@ -34,7 +34,7 @@ export default class GameScene extends Phaser.Scene {
       .setOrigin(0, 1);
 
     this.zombie = this.physics.add
-      .sprite(0, height, "zombie")
+      .sprite(0, height, "zombie-1")
       .setOrigin(0, 1)
       .setBodySize(44, 160)
       .setDepth(1)
