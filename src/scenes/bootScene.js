@@ -1,11 +1,13 @@
 import "phaser";
 
-export default class GameScene extends Phaser.Scene {
+export default class BootScene extends Phaser.Scene {
   constructor() {
-    super("Game");
+    super("Boot");
   }
 
   preload() {}
 
-  create() {}
+  create() {
+    this.scene.start("Preloader");
+  }
 }

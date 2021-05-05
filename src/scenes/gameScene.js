@@ -5,35 +5,6 @@ export default class GameScene extends Phaser.Scene {
     super("Game");
   }
 
-  preload() {
-    this.load.audio("jump", "assets/jump.m4a");
-    this.load.audio("hit", "assets/hit.mp3");
-    this.load.audio("reach", "assets/reach.mp3");
-    this.load.audio("horda", "assets/Zombie.mp3");
-
-    this.load.image("ground", "assets/ground.png");
-    this.load.image("zombie-1", "assets/Animation/Idle1.png");
-    this.load.image("zombie-jump", "assets/Animation/Jump5.png");
-    this.load.image("zombie-down", "assets/Animation/Jump6.png");
-    this.load.image("zombie-hurt", "assets/Animation/Hurt4.png");
-    this.load.image("bullet", "assets/bullet.png");
-    this.load.image("restart", "assets/restart.png");
-    this.load.image("game-over", "assets/game-over.png");
-    this.load.image("background", "assets/back-1.jpg");
-
-    this.load.image("obsticle-1", "assets/obsticle-1.png");
-    this.load.image("obsticle-2", "assets/obsticle-2.png");
-    this.load.image("obsticle-3", "assets/obsticle-3.png");
-    this.load.image("obsticle-4", "assets/obsticle-4.png");
-    this.load.image("obsticle-5", "assets/obsticle-5.png");
-    this.load.image("obsticle-6", "assets/obsticle-6.png");
-
-    this.load.spritesheet("zombie", "assets/spritesheet.png", {
-      frameWidth: 99,
-      frameHeight: 160,
-    });
-  }
-
   create() {
     this.isGameRunning = false;
     this.gameSpeed = 10;
@@ -63,7 +34,7 @@ export default class GameScene extends Phaser.Scene {
       .setOrigin(0, 1);
 
     this.zombie = this.physics.add
-      .sprite(0, height, "zombie-1")
+      .sprite(0, height, "zombie")
       .setOrigin(0, 1)
       .setBodySize(44, 160)
       .setDepth(1)
