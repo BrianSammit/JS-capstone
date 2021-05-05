@@ -10,6 +10,7 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.audio("hit", "assets/hit.mp3");
     this.load.audio("reach", "assets/reach.mp3");
     this.load.audio("horda", "assets/Zombie.mp3");
+    this.load.audio("music", "assets/music.mp3");
 
     this.load.image("ground", "assets/ground.png");
     this.load.image("zombie-1", "assets/Animation/Idle1.png");
@@ -62,7 +63,7 @@ export default class PreloaderScene extends Phaser.Scene {
     });
 
     this.time.addEvent({
-      // delay: 5000,
+      delay: 5000,
       callback: () => {
         this.scene.start("Title");
       },
