@@ -37,6 +37,11 @@ export default class PreloaderScene extends Phaser.Scene {
   create() {
     const { height, width } = this.game.config;
 
+    this.loading = this.add
+      .sprite(500, 250, "loading")
+      .setOrigin(0, 1)
+      .setDepth(1);
+
     this.background = this.add
       .tileSprite(0, height, 0, 0, "background")
       .setOrigin(0, 1);
