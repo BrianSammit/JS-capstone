@@ -21,6 +21,10 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image("game-over", "assets/game-over.png");
     this.load.image("background", "assets/back-1.jpg");
 
+    this.load.image("head", "assets/Animation/head3.png");
+    this.load.image("play", "assets/play_button.png");
+    this.load.image("score", "assets/score-button.png");
+
     this.load.image("obsticle-1", "assets/obsticle-1.png");
     this.load.image("obsticle-2", "assets/obsticle-2.png");
     this.load.image("obsticle-3", "assets/obsticle-3.png");
@@ -58,9 +62,9 @@ export default class PreloaderScene extends Phaser.Scene {
     });
 
     this.time.addEvent({
-      delay: 5000,
+      // delay: 5000,
       callback: () => {
-        this.scene.start("Game");
+        this.scene.start("Title");
       },
       loop: true,
     });
