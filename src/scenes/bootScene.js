@@ -5,7 +5,12 @@ export default class BootScene extends Phaser.Scene {
     super("Boot");
   }
 
-  preload() {}
+  preload() {
+    this.load.spritesheet("zombie_logo", "assets/spritesheet-logo.png", {
+      frameWidth: 253,
+      frameHeight: 434,
+    });
+  }
 
   create() {
     this.scene.start("Preloader");

@@ -29,13 +29,8 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image("obsticle-6", "assets/obsticle-6.png");
 
     this.load.spritesheet("zombie", "assets/spritesheet.png", {
-      frameWidth: 134,
+      frameWidth: 141,
       frameHeight: 160,
-    });
-
-    this.load.spritesheet("zombie_logo", "assets/spritesheet-logo.png", {
-      frameWidth: 253,
-      frameHeight: 434,
     });
   }
 
@@ -54,7 +49,7 @@ export default class PreloaderScene extends Phaser.Scene {
       key: "zombie_logo",
       frames: this.anims.generateFrameNumbers("zombie_logo", {
         start: 0,
-        end: 6,
+        end: 5,
       }),
       frameRate: 8,
       repeat: -1,

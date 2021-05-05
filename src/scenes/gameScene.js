@@ -36,7 +36,7 @@ export default class GameScene extends Phaser.Scene {
     this.zombie = this.physics.add
       .sprite(0, height, "zombie-1")
       .setOrigin(0, 1)
-      .setBodySize(44, 160)
+      .setBodySize(45, 160)
       .setDepth(1)
       .setCollideWorldBounds(true)
       .setGravityY(5000);
@@ -163,8 +163,8 @@ export default class GameScene extends Phaser.Scene {
   initAnims() {
     this.anims.create({
       key: "zombie-run",
-      frames: this.anims.generateFrameNumbers("zombie", { start: 0, end: 3 }),
-      frameRate: 8,
+      frames: this.anims.generateFrameNumbers("zombie", { start: 0, end: 5 }),
+      frameRate: 10,
       repeat: -1,
     });
   }
