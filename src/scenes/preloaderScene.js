@@ -41,8 +41,13 @@ export default class PreloaderScene extends Phaser.Scene {
 
   create() {
     const { height, width } = this.game.config;
+
+    this.background = this.add
+      .tileSprite(0, height, 0, 0, "background")
+      .setOrigin(0, 1);
+
     this.zombie_logo = this.physics.add
-      .sprite(width / 2, height, "zombie_logo")
+      .sprite(width / 1.5, height, "zombie_logo")
       .setOrigin(0, 1);
 
     this.anims.create({
@@ -66,5 +71,6 @@ export default class PreloaderScene extends Phaser.Scene {
 
   update() {
     this.zombie_logo.play("zombie_logo", true);
+    this.background.tilePositionX += 5;
   }
 }
