@@ -8,8 +8,6 @@ export default class TitleScene extends Phaser.Scene {
   create() {
     const { height, width } = this.game.config;
 
-    this.music = this.sound.add("music", { volume: 1, loop: true });
-
     this.background = this.add
       .tileSprite(0, height, 0, 0, "background")
       .setOrigin(0, 1);
@@ -48,10 +46,8 @@ export default class TitleScene extends Phaser.Scene {
     });
 
     this.scoreButton.on("pointerup", () => {
-      this.scene.start("Game");
+      this.scene.start("Ranking");
     });
-
-    this.music.play();
   }
 
   update() {
