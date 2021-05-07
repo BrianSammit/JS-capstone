@@ -1,17 +1,17 @@
-const webpack = require("webpack");
-const path = require("path");
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
 
   output: {
-    path: path.resolve(__dirname, "dist"),
-    publicPath: "/dist/",
-    filename: "main.js",
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/dist/',
+    filename: 'main.js',
   },
 
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
   },
@@ -20,7 +20,7 @@ module.exports = {
     rules: [
       {
         test: [/\.vert$/, /\.frag$/],
-        use: "raw-loader",
+        use: 'raw-loader',
       },
     ],
   },

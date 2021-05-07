@@ -1,9 +1,9 @@
-import "phaser";
-import scoreData from "../score/api";
+import Phaser from 'phaser';
+import scoreData from '../score/api';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
-    super("Game");
+    super('Game');
   }
 
   create() {
@@ -15,10 +15,10 @@ export default class GameScene extends Phaser.Scene {
 
     const { height, width } = this.game.config;
 
-    this.jumpSound = this.sound.add("jump", { volume: 0.2 });
-    this.hitSound = this.sound.add("hit", { volume: 0.2 });
-    this.reachSound = this.sound.add("reach", { volume: 1 });
-    this.hordaSound = this.sound.add("horda", { volume: 0.5, loop: true });
+    this.jumpSound = this.sound.add('jump', { volume: 0.2 });
+    this.hitSound = this.sound.add('hit', { volume: 0.2 });
+    this.reachSound = this.sound.add('reach', { volume: 1 });
+    this.hordaSound = this.sound.add('horda', { volume: 0.5, loop: true });
 
     this.startTrigger = this.physics.add
       .sprite(0, 10)
@@ -26,16 +26,16 @@ export default class GameScene extends Phaser.Scene {
       .setImmovable();
 
     this.ground = this.add
-      .tileSprite(0, height, 150, 72, "ground")
+      .tileSprite(0, height, 150, 72, 'ground')
       .setOrigin(0, 1)
       .setDepth(0.5);
 
     this.background = this.add
-      .tileSprite(0, height, 150, 540, "background")
+      .tileSprite(0, height, 150, 540, 'background')
       .setOrigin(0, 1);
 
     this.zombie = this.physics.add
-      .sprite(0, height, "zombie-1")
+      .sprite(0, height, 'zombie-1')
       .setOrigin(0, 1)
       .setBodySize(45, 160)
       .setDepth(1)
@@ -43,18 +43,18 @@ export default class GameScene extends Phaser.Scene {
       .setGravityY(5000);
 
     this.scoreText = this.add
-      .text(width, 0, "00000", {
-        fill: "#535353",
-        font: "900 35px Courier",
+      .text(width, 0, '00000', {
+        fill: '#535353',
+        font: '900 35px Courier',
         resolution: 5,
       })
       .setOrigin(1, 0)
       .setAlpha(0);
 
     this.highScoreText = this.add
-      .text(width, 0, "00000", {
-        fill: "#535353",
-        font: "900 35px Courier",
+      .text(width, 0, '00000', {
+        fill: '#535353',
+        font: '900 35px Courier',
         resolution: 5,
       })
       .setOrigin(1, 0)
@@ -63,10 +63,10 @@ export default class GameScene extends Phaser.Scene {
     this.gameOverScreen = this.add
       .container(width / 2, height / 2 - 50)
       .setAlpha(0);
-    this.gameOverText = this.add.image(0, 0, "game-over");
-    this.restart = this.add.image(0, 200, "restart").setInteractive();
+    this.gameOverText = this.add.image(0, 0, 'game-over');
+    this.restart = this.add.image(0, 200, 'restart').setInteractive();
     this.home = this.add
-      .image(width - 200, height - 80, "home")
+      .image(width - 200, height - 80, 'home')
       .setInteractive();
 
     this.gameOverScreen.add([this.gameOverText, this.restart]);
@@ -88,24 +88,23 @@ export default class GameScene extends Phaser.Scene {
         this.highScoreText.x = this.scoreText.x - this.scoreText.width - 20;
 
         const highScore = this.highScoreText.text.substr(
-          this.highScoreText.text.length - 5
+          this.highScoreText.text.length - 5,
         );
 
-        const newScore =
-          Number(this.scoreText.text) > Number(highScore)
-            ? this.scoreText.text
-            : highScore;
+        const newScore = Number(this.scoreText.text) > Number(highScore)
+          ? this.scoreText.text
+          : highScore;
 
         scoreData.scoreSetter(newScore);
         scoreData.postScores();
 
-        this.highScoreText.setText("HI " + newScore);
+        this.highScoreText.setText(`HI ${newScore}`);
         this.highScoreText.setAlpha(1);
 
         this.physics.pause();
         this.isGameRunning = false;
         this.anims.pauseAll();
-        this.zombie.setTexture("zombie-hurt");
+        this.zombie.setTexture('zombie-hurt');
         this.respawnTime = 0;
         this.gameSpeed = 10;
         this.gameOverScreen.setAlpha(1);
@@ -113,7 +112,7 @@ export default class GameScene extends Phaser.Scene {
         this.hitSound.play();
       },
       null,
-      this
+      this,
     );
   }
 
@@ -136,7 +135,7 @@ export default class GameScene extends Phaser.Scene {
           callbackScope: this,
           callback: () => {
             this.zombie.setVelocityX(80);
-            this.zombie.play("zombie-run", 1);
+            this.zombie.play('zombie-run', 1);
 
             if (this.ground.width < width) {
               this.ground.width += 17 * 2;
@@ -163,14 +162,14 @@ export default class GameScene extends Phaser.Scene {
         });
       },
       null,
-      this
+      this,
     );
   }
 
   initAnims() {
     this.anims.create({
-      key: "zombie-run",
-      frames: this.anims.generateFrameNumbers("zombie", { start: 0, end: 5 }),
+      key: 'zombie-run',
+      frames: this.anims.generateFrameNumbers('zombie', { start: 0, end: 5 }),
       frameRate: 10,
       repeat: -1,
     });
@@ -185,7 +184,7 @@ export default class GameScene extends Phaser.Scene {
         if (!this.isGameRunning) {
           return;
         }
-
+        // eslint-disable-next-line  no-plusplus
         this.score++;
         this.gameSpeed += 0.01;
 
@@ -202,17 +201,18 @@ export default class GameScene extends Phaser.Scene {
         }
 
         const score = Array.from(String(this.score), Number);
+        // eslint-disable-next-line  no-plusplus
         for (let i = 0; i < 5 - String(this.score).length; i++) {
           score.unshift(0);
         }
 
-        this.scoreText.setText(score.join(""));
+        this.scoreText.setText(score.join(''));
       },
     });
   }
 
   handleImputs() {
-    this.restart.on("pointerdown", () => {
+    this.restart.on('pointerdown', () => {
       this.zombie.setVelocityY(0);
       this.zombie.body.height = 160;
       this.zombie.body.offset.y = 0;
@@ -223,11 +223,11 @@ export default class GameScene extends Phaser.Scene {
       this.anims.resumeAll();
     });
 
-    this.home.on("pointerdown", () => {
-      this.scene.start("Title");
+    this.home.on('pointerdown', () => {
+      this.scene.start('Title');
     });
 
-    this.input.keyboard.on("keydown-SPACE", () => {
+    this.input.keyboard.on('keydown-SPACE', () => {
       if (!this.zombie.body.onFloor() || this.zombie.body.velocity.x > 0) {
         return;
       }
@@ -239,7 +239,7 @@ export default class GameScene extends Phaser.Scene {
       this.zombie.setVelocityY(-2000);
     });
 
-    this.input.keyboard.on("keydown-DOWN", () => {
+    this.input.keyboard.on('keydown-DOWN', () => {
       if (!this.zombie.body.onFloor() || !this.isGameRunning) {
         return;
       }
@@ -247,7 +247,7 @@ export default class GameScene extends Phaser.Scene {
       this.zombie.body.offset.y = 90;
     });
 
-    this.input.keyboard.on("keyup-DOWN", () => {
+    this.input.keyboard.on('keyup-DOWN', () => {
       this.zombie.body.height = 160;
       this.zombie.body.offset.y = 0;
     });
@@ -264,13 +264,13 @@ export default class GameScene extends Phaser.Scene {
       obsticle = this.obsticles.create(
         width + distance,
         height - enemyHeight[Math.floor(Math.random() * 2)],
-        "bullet"
+        'bullet',
       );
     } else {
       obsticle = this.obsticles.create(
         width + distance,
         height,
-        `obsticle-${obsticleNum}`
+        `obsticle-${obsticleNum}`,
       );
       obsticle.body.offset.y = +10;
     }
@@ -303,11 +303,12 @@ export default class GameScene extends Phaser.Scene {
 
     if (this.zombie.body.deltaAbsY() > 0) {
       this.zombie.anims.stop();
-      this.zombie.setTexture("zombie-jump");
+      this.zombie.setTexture('zombie-jump');
     } else {
+      // eslint-disable-next-line  no-unused-expressions
       this.zombie.body.height <= 81
-        ? this.zombie.setTexture("zombie-down")
-        : this.zombie.play("zombie-run", true);
+        ? this.zombie.setTexture('zombie-down')
+        : this.zombie.play('zombie-run', true);
     }
   }
 }

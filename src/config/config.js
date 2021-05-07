@@ -1,3 +1,5 @@
+import Phaser from 'phaser';
+
 export default {
   type: Phaser.AUTO,
   width: 1100,
@@ -5,7 +7,7 @@ export default {
   pixelArt: true,
   transparent: true,
   physics: {
-    default: "arcade",
+    default: 'arcade',
     arcade: {
       debug: false,
     },

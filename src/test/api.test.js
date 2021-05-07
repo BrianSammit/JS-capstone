@@ -1,15 +1,15 @@
-import api from "../score/api";
-import "regenerator-runtime";
+import api from '../score/api';
+import 'regenerator-runtime';
 
-const axios = require("axios");
+const axios = require('axios');
 
-jest.mock("axios");
+jest.mock('axios');
 
-it("It should return the player name", async () => {
+it('It should return the player name', async () => {
   axios.get.mockResolvedValue({
     data: [
       {
-        name: "Brian",
+        name: 'Brian',
         score: 540,
       },
     ],
@@ -17,16 +17,16 @@ it("It should return the player name", async () => {
   await api
     .postScores()
     .then((data) => {
-      expect(data.name).toEqual("Brian");
+      expect(data.name).toEqual('Brian');
     })
     .catch((error) => error);
 });
 
-it("It should return the player score", async () => {
+it('It should return the player score', async () => {
   axios.get.mockResolvedValue({
     data: [
       {
-        name: "Brian",
+        name: 'Brian',
         score: 950,
       },
     ],
@@ -39,11 +39,11 @@ it("It should return the player score", async () => {
     .catch((error) => error);
 });
 
-it("It should fail if player score is incorrect", async () => {
+it('It should fail if player score is incorrect', async () => {
   axios.get.mockResolvedValue({
     data: [
       {
-        name: "Brian",
+        name: 'Brian',
         score: 150,
       },
     ],
