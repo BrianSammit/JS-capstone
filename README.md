@@ -6,7 +6,7 @@
 <br />
 <p align="center">
   <a href="#">
-    <img src="./dist/assets/Animation/head3.png" alt="Logo" width="80" height="80">
+    <img src="../dist/assets/Animation/head3.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Platform Game JS Capstone</h3>
@@ -22,10 +22,10 @@
   - [Installation](#installation)
 - [How to test it](#How-to-test-it)
 - [How to play](#How-to-play)
-- [Contact](#contact)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+- [Contact](#Author)
+- [Contributing](#🤝-Contributing)
+- [Acknowledgements](#Acknowledgments)
+- [License](#📝-License)
 
 <br>
 
@@ -77,8 +77,6 @@ To get a local copy up and running follow these simple example steps.
 ## How to play
 
 To start the game just press the SpaceBar that gonna make the character jump. themn just press the SpaceBar to jump and arroy down to put the character down.
-
-<!-- CONTACT -->
 
 ## Author
 
