@@ -20,7 +20,7 @@
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
-- [How to test it](#How-to-play)
+- [How to test it](#How-to-test-it)
 - [How to play](#How-to-play)
 - [Contact](#contact)
 - [Contributing](#contributing)
