@@ -37,7 +37,7 @@ export default class TitleScene extends Phaser.Scene {
     });
 
     this.playButton.on("pointerup", () => {
-      this.scene.start("Game");
+      this.scene.start("Input");
     });
 
     this.scoreButton.on("pointerover", () => {
