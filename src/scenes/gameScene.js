@@ -1,5 +1,5 @@
 import "phaser";
-import scoreData from '../score/api';
+import scoreData from "../score/api";
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -65,6 +65,9 @@ export default class GameScene extends Phaser.Scene {
       .setAlpha(0);
     this.gameOverText = this.add.image(0, 0, "game-over");
     this.restart = this.add.image(0, 200, "restart").setInteractive();
+    this.home = this.add
+      .image(width - 200, height - 80, "home")
+      .setInteractive();
 
     this.gameOverScreen.add([this.gameOverText, this.restart]);
 
@@ -218,6 +221,10 @@ export default class GameScene extends Phaser.Scene {
       this.isGameRunning = true;
       this.gameOverScreen.setAlpha(0);
       this.anims.resumeAll();
+    });
+
+    this.home.on("pointerdown", () => {
+      this.scene.start("Title");
     });
 
     this.input.keyboard.on("keydown-SPACE", () => {
