@@ -26,7 +26,7 @@
 
 <br>
 
-![](../dist/assets/Hnet-image.gif)
+![](./dist/assets/Hnet-image.gif)
 
 <br>
 
