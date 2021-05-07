@@ -17,11 +17,14 @@
       "\\.(css|less|sass|scss)$": "<rootDir>/test/mocks/styleMock.js",
       "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/mocks/fileMock.js"
     },
-    "modulePathIgnorePatterns": ["<rootDir>/externals"]
+    "modulePathIgnorePatterns": [
+      "<rootDir>/externals"
+    ]
   },
   "main": "index.js",
   "dependencies": {
     "@babel/preset-env": "^7.14.1",
+    "axios": "^0.21.1",
     "babel": "^6.23.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.25.0",
@@ -30,6 +33,7 @@
     "jest": "^26.6.3",
     "jest-expect-subclass": "^1.0.1",
     "phaser": "^3.54.0",
+    "regenerator-runtime": "^0.13.7",
     "serve": "^11.3.2",
     "stylelint": "^13.13.0",
     "stylelint-config-standard": "^21.0.0",
