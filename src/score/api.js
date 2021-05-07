@@ -1,5 +1,5 @@
 const score = (function () {
-  const key = "8PQYUe830DvDNsYhx6eU";
+  const key = "BRui6a5ssodZpLtccF3s";
   const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${key}/scores/`;
   const data = {};
 
