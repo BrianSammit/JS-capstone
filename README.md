@@ -1,43 +1,65 @@
 # JS-capstone
 
-This project consist on a endless runner game. Made on phaser 3
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-You can see the original design [here](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version)
-Design idea by [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio)
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="#">
+    <img src="../dist/assets/Animation/head3.png" alt="Logo" width="80" height="80">
+  </a>
 
-On the navbar, I include a button for more categories because I want to include all the categories existing for the topic.
-In the original project, the forms, and the article doesn't have design, so I created my designs trying to follow the guidelines of the given design.
+  <h3 align="center">Platform Game JS Capstone</h3>
+  <h2 align="center">Zombie endless runner</h2>
 
-![screenshot](screenshots/Screenshot-2.png)
-![screenshot](screenshots/Screenshot-1.png)
-![screenshot](screenshots/Screenshot-3.png)
-![screenshot](screenshots/Screenshot-4.png)
+<!-- TABLE OF CONTENTS -->
+
+## Table of Contents
+
+- [About the Project](#about-the-project)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+- [How to test it](#How-to-play)
+- [How to play](#How-to-play)
+- [Contact](#contact)
+- [Contributing](#contributing)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
+
+<br>
+
+![](../dist/assets/Hnet-image.gif)
+
+<br>
 
 ## Live demo
 
-[live demo](https://rocky-gorge-53007.herokuapp.com/)
+[live demo]()
 
-## Video
+<!-- ABOUT THE PROJECT -->
 
-[Loom video](https://www.loom.com/share/cde6ff53ac5b4879838f462af8523dad)
+## About The Project
 
-## Built With
+This project consist on a endless runner game. Made on phaser 3
 
-- Ruby
-- Ruby on rails
-- Capybara / Rspec
+### Built With
 
-## Pre-requisites
+- JavasCript
+- Phaser
+- Jest
+- CSS
+- HTML
 
-- Ruby 2.7.0
-- Rails gem
-- Bundle
+## Getting Started
 
-## How to start the project from your Local enviroment
+To get a local copy up and running follow these simple example steps.
+
+### Installation
 
 - Open your terminal and cd where you want to store the project
-- Run the following command - `git clone https://github.com/BrianSammit/Rails_capstone.git`
-- Cd into the directory - `cd Rails_capstone`
+- Run the following command - `git clone https://github.com/BrianSammit/JS-capstone.git`
+- Cd into the directory - `cd JS-capstone`
 - Then run `Bundle install`
 - Run `rails db:migrate`
 - Run `rails db:seed`
@@ -48,9 +70,15 @@ In the original project, the forms, and the article doesn't have design, so I cr
 ## How to test it
 
 - Open your terminal
-- Cd into the directory - `cd Rails_capstone`
-- Then run `rspec`
+- Cd into the directory - `cd JS-capstone`
+- Then run `npm test`
 - You should see the test results.
+
+## How to play
+
+To start the game just press the SpaceBar that gonna make the character jump. themn just press the SpaceBar to jump and arroy down to put the character down.
+
+<!-- CONTACT -->
 
 ## Author
 
@@ -64,7 +92,7 @@ In the original project, the forms, and the article doesn't have design, so I cr
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/BrianSammit/Rails_capstone/issues).
+Feel free to check the [issues page]().
 
 ## Show your support
 
