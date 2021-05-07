@@ -2,17 +2,14 @@
 
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-<!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <a href="#">
-    <img src="../dist/assets/Animation/head3.png" alt="Logo" width="80" height="80">
+    <img src="./dist/assets/Animation/head3.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Platform Game JS Capstone</h3>
   <h2 align="center">Zombie endless runner</h2>
-
-<!-- TABLE OF CONTENTS -->
 
 ## Table of Contents
 
@@ -20,24 +17,22 @@
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
-- [How to test it](#How-to-test-it)
+- [How to test it](#How-to-play)
 - [How to play](#How-to-play)
-- [Contact](#Author)
-- [Contributing](#Contributing)
-- [Acknowledgements](#Acknowledgments)
-- [License](#License)
+- [Contact](#contact)
+- [Contributing](#contributing)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
 
 <br>
 
-![](./dist/assets/Hnet-image.gif)
+![](../dist/assets/Hnet-image.gif)
 
 <br>
 
 ## Live demo
 
 [live demo]()
-
-<!-- ABOUT THE PROJECT -->
 
 ## About The Project
 
@@ -60,12 +55,8 @@ To get a local copy up and running follow these simple example steps.
 - Open your terminal and cd where you want to store the project
 - Run the following command - `git clone https://github.com/BrianSammit/JS-capstone.git`
 - Cd into the directory - `cd JS-capstone`
-- Then run `Bundle install`
-- Run `rails db:migrate`
-- Run `rails db:seed`
-- Run `rails server` or `rails s`
-- Open your browser
-- Type `http://localhost:3000/`
+- Then run ` npm run-script build`
+- Open the live server on your VScode Alt + L then Alt + o in the index.html
 
 ## How to test it
 
@@ -86,11 +77,11 @@ To start the game just press the SpaceBar that gonna make the character jump. th
 - Twitter: [@twitterhandle](https://twitter.com/cruzsammit)
 - Linkedin: [linkedin](https://www.linkedin.com/in/brian-sammit-cruz-rodriguez-5877551a8/)
 
-## Contributing
+## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page]().
+Feel free to check the [issues page](https://github.com/BrianSammit/JS-capstone/issues).
 
 ## Show your support
 
@@ -102,7 +93,7 @@ Give a ⭐️ if you like this project!
 - Rails guides
 - Microverse
 
-## License
+## 📝 License
 
 This project is [MIT](lic.url) licensed.![]
 
