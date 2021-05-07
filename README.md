@@ -5,7 +5,7 @@
 <br />
 <p align="center">
   <a href="#">
-    <img src="../dist/assets/Animation/head3.png" alt="Logo" width="80" height="80">
+    <img src="./dist/assets/Animation/head3.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Platform Game JS Capstone</h3>
