@@ -1,5 +1,7 @@
 import "phaser";
 
+import scoreBoard from "../score/scoreBoard";
+
 export default class TitleScene extends Phaser.Scene {
   constructor() {
     super("Title");
@@ -7,6 +9,9 @@ export default class TitleScene extends Phaser.Scene {
 
   create() {
     const { height, width } = this.game.config;
+
+    const board = document.getElementById("score");
+    board.style.display = "none";
 
     this.background = this.add
       .tileSprite(0, height, 0, 0, "background")
@@ -32,7 +37,7 @@ export default class TitleScene extends Phaser.Scene {
     });
 
     this.playButton.on("pointerup", () => {
-      this.scene.start("Input");
+      this.scene.start("Game");
     });
 
     this.scoreButton.on("pointerover", () => {

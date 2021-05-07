@@ -19,7 +19,7 @@ export default class RankingScene extends Phaser.Scene {
       .setDepth(1);
     this.homeButton.setInteractive();
 
-    this.add.image(width / 3, height, "board").setOrigin(0, 1);
+    this.add.image(width / 7, height, "board").setOrigin(0, 1);
     this.add.text(width / 2 - 130, height / 2 - 200, "Top 10 players", {
       color: "#0b6623",
       fontFamily: "Itim, cursive",
@@ -41,16 +41,6 @@ export default class RankingScene extends Phaser.Scene {
       this.scene.start("Title");
     });
 
-    const menuButton = document.getElementById('menu');
-    menuButton.style.display = 'block';
-
-    menuButton.addEventListener('click', () => {
-      const score = document.getElementById('score');
-      this.scene.start('Title');
-      score.style.display = 'none';
-      menuButton.style.display = 'none';
-      score.innerHTML = '';
-    });
     scoreBoard.create();
   }
 }

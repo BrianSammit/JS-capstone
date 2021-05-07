@@ -77,6 +77,55 @@ input[name="back"] {
   border-radius: 15px;
 }
 
+#score {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid black;
+  border-radius: 15px;
+  color: #5d1512;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  right: 25%;
+  width: 40%;
+  height: auto;
+}
+
+#score > span {
+  width: auto;
+  padding: 3% 8%;
+}
+
+#menu {
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  right: 50%;
+  width: 75px;
+  height: 75px;
+  display: none;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0 #a68837;
+  padding-top: 6px;
+  cursor: pointer;
+  border: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
 #warning {
   font-size: 25px;
   font-weight: bolder;
