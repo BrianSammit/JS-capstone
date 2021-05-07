@@ -1,4 +1,5 @@
 import "phaser";
+import scoreData from '../score/api';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -91,6 +92,9 @@ export default class GameScene extends Phaser.Scene {
           Number(this.scoreText.text) > Number(highScore)
             ? this.scoreText.text
             : highScore;
+
+        scoreData.scoreSetter(newScore);
+        scoreData.postScores();
 
         this.highScoreText.setText("HI " + newScore);
         this.highScoreText.setAlpha(1);

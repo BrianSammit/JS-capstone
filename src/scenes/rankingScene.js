@@ -41,6 +41,16 @@ export default class RankingScene extends Phaser.Scene {
       this.scene.start("Title");
     });
 
+    const menuButton = document.getElementById('menu');
+    menuButton.style.display = 'block';
+
+    menuButton.addEventListener('click', () => {
+      const score = document.getElementById('score');
+      this.scene.start('Title');
+      score.style.display = 'none';
+      menuButton.style.display = 'none';
+      score.innerHTML = '';
+    });
     scoreBoard.create();
   }
 }

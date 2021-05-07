@@ -1,5 +1,5 @@
 import "phaser";
-
+import scoreData from '../score/api';
 export default class InputScene extends Phaser.Scene {
     constructor() {
         super("Input");
