@@ -32,7 +32,7 @@
 
 ## Live demo
 
-[live demo]()
+[live demo](https://nifty-ritchie-c59fcf.netlify.app/)
 
 ## About The Project
 
