@@ -36,7 +36,7 @@
 
 ## About The Project
 
-This project consist on a endless runner game. Made on phaser 3
+This project consist on a endless runner game. Made on phaser 3  I made a full game that consists of an endless runner, where the point of the game is to go as far as you can, You can see a loader scene, title scene, score scene and, the game scene, you must move only by jumping or going down to avoid collapse with the objects that are in the map.
 
 ### Built With
 
