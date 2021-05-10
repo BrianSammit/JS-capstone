@@ -1,17 +1,17 @@
 /* eslint-disable func-names */
 
 const score = (function () {
-  const key = "BRui6a5ssodZpLtccF3s";
+  const key = 'BRui6a5ssodZpLtccF3s';
   const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${key}/scores/`;
   const data = {};
   async function postScores() {
     const fullData = data;
     try {
       const response = await fetch(url, {
-        method: "POST",
-        mode: "cors",
+        method: 'POST',
+        mode: 'cors',
         headers: {
-          "content-type": "application/json; charset=UTF-8",
+          'content-type': 'application/json; charset=UTF-8',
         },
         body: JSON.stringify(fullData),
       });
@@ -48,5 +48,5 @@ const score = (function () {
     nameSetter,
     scoreSetter,
   };
-})();
+}());
 export default score;
