@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import score from './api';
+import score from "./api";
 
 const Board = (function () {
   const sortData = (data) => {
@@ -18,13 +18,13 @@ const Board = (function () {
   };
 
   const board = (arr) => {
-    const board = document.getElementById('score');
-    board.style.display = 'grid';
+    const board = document.getElementById("score");
+    board.style.display = "grid";
 
     arr.slice(0, 10).forEach((item, i) => {
-      const ranking = document.createElement('span', { class: 'ranking' });
-      const name = document.createElement('span', { class: 'name' });
-      const score = document.createElement('span', { class: 'score' });
+      const ranking = document.createElement("span", { class: "ranking" });
+      const name = document.createElement("span", { class: "name" });
+      const score = document.createElement("span", { class: "score" });
       ranking.textContent = i + 1;
       name.textContent = item.user;
       score.textContent = item.score;
@@ -44,6 +44,6 @@ const Board = (function () {
   };
 
   return { create };
-}());
+})();
 
 export default Board;
