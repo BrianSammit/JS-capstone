@@ -55,6 +55,7 @@ To get a local copy up and running follow these simple example steps.
 - Open your terminal and cd where you want to store the project
 - Run the following command - `git clone https://github.com/BrianSammit/JS-capstone.git`
 - Cd into the directory - `cd JS-capstone`
+- Then run ` npm npm install`
 - Then run ` npm run-script build`
 - Open the live server on your VScode Alt + L then Alt + o in the index.html
 
