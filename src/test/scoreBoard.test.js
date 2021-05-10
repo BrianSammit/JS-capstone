@@ -1,9 +1,16 @@
-import Board from "../score/scoreBoard";
+describe('create the board', () => {
+  it('Expects the projects projects container to not be null', () => {
+    const ranking = document.getElementsByClassName('ranking');
+    expect(ranking).toBeDefined();
+  });
 
-describe("create the board", () => {
-  let arr = [5, 4, 9, 7];
-  it("It return the arr sort it ", () => {
-    Board(arr);
-    expect(arr).toEqual([4, 5, 7, 9]);
+  it('Expects the projects projects container to not be null', () => {
+    const name = document.getElementsByClassName('name');
+    expect(name).toBeDefined();
+  });
+
+  it('Expects the projects projects container to not be null', () => {
+    const score = document.getElementsByClassName('score');
+    expect(score).toBeDefined();
   });
 });
