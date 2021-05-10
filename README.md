@@ -55,13 +55,15 @@ I was requested to build an endless run game, with different scenes. The game co
 
 ### Story and Gameplay
 
+A Zombie apocalypse caused for a virus in 2030 destroyed the civilization, A zombie is a character without any thinking that only goes stray try to find a reason for life avoiding obstacles presented on the world. The main reason for the zombie is to pass the virus to humans and he goes traveling trying to find any human to infected.
+
 ### Objective
 
 - Go as far as you can.
 
 ### Assets
 
-I tried to find good matches for this game, the audios are from an 8-bit version of some Jonas Brothers songs, I create the background and try to match everything to pink which is the predominant color. The images come from Opengameart, and I did some modifications to them.
+I created the sprites for the animations because a find the images but not as sprites. With the music, I try to implement a sound post-apocalyptic to make the game more enjoyable. The Acknowledgments of the music is in the Acknowledgments section. I use a background and a ground with different speeds to create the effect of moving.
 
 #### Character
 
@@ -71,15 +73,8 @@ I tried to find good matches for this game, the audios are from an 8-bit version
 
 ### Controls
 
-- Press ⬆️ to move up
+- Press `SPACE` to jump
 - Press ⬇️ to move down
-- Press ➡️ to go right
-- Press ⬅️ to go left
-
-### Controls in Battle
-
-- Press ⬆️ or ⬇️ to select who you are going to attack
-- Press Space to attack
 
 ## Getting Started
 
@@ -128,12 +123,11 @@ Give a ⭐️ if you like this project!
 - The Odin Project
 - Rails guides
 - Microverse
+- March of Midnight by Scott Buckley | www.scottbuckley.com.au
+  Music promoted by https://www.chosic.com
+  Attribution 4.0 International (CC BY 4.0)
+  https://creativecommons.org/licenses/by/4.0/
 
 ## License
 
 This project is [MIT](https://github.com/BrianSammit/JS-capstone/blob/development/LICENSE) licensed.![]
-
-March of Midnight by Scott Buckley | www.scottbuckley.com.au
-Music promoted by https://www.chosic.com
-Attribution 4.0 International (CC BY 4.0)
-https://creativecommons.org/licenses/by/4.0/
