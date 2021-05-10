@@ -21,9 +21,8 @@
 - [How to play](#How-to-play)
 - [Contact](#Author)
 - [Contributing](#Contributing)
-- [Acknowledgements](#Acknowledgments)
-- [License](#License
-)
+- [Acknowledgments](#Acknowledgments)
+- [License](#License)
 
 <br>
 
@@ -37,7 +36,7 @@
 
 ## About The Project
 
-This project consist on a endless runner game. Made on phaser 3  I made a full game that consists of an endless runner, where the point of the game is to go as far as you can, You can see a loader scene, title scene, score scene and, the game scene, you must move only by jumping or going down to avoid collapse with the objects that are in the map.
+This project consists of an endless runner game. Made on phaser 3 I made a full game that consists of an endless runner, where the point of the game is to go as far as you can, You can see a loader scene, title scene, score scene and, the game scene, you must move only by jumping or going down to avoid collapse with the objects that are in the map.
 
 ### Built With
 
@@ -68,7 +67,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## How to play
 
-To start the game just press the SpaceBar that gonna make the character jump. themn just press the SpaceBar to jump and arroy down to put the character down.
+To start the game just press the SpaceBar that gonna make the character jump. Then just press the SpaceBar to jump and arrow down to put the character down.
 
 ## Author
 
@@ -78,9 +77,9 @@ To start the game just press the SpaceBar that gonna make the character jump. th
 - Twitter: [@twitterhandle](https://twitter.com/cruzsammit)
 - Linkedin: [linkedin](https://www.linkedin.com/in/brian-sammit-cruz-rodriguez-5877551a8/)
 
-##  Contributing
+## Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/BrianSammit/JS-capstone/issues).
 
