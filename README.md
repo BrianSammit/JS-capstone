@@ -96,7 +96,7 @@ Give a ⭐️ if you like this project!
 
 ## License
 
-This project is [MIT](lic.url) licensed.![]
+This project is [MIT](https://github.com/BrianSammit/JS-capstone/blob/development/LICENSE) licensed.![]
 
 March of Midnight by Scott Buckley | www.scottbuckley.com.au
 Music promoted by https://www.chosic.com
