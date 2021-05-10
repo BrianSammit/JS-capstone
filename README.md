@@ -19,10 +19,11 @@
   - [Installation](#installation)
 - [How to test it](#How-to-play)
 - [How to play](#How-to-play)
-- [Contact](#contact)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+- [Contact](#Author)
+- [Contributing](#Contributing)
+- [Acknowledgements](#Acknowledgments)
+- [License](#License
+)
 
 <br>
 
@@ -77,7 +78,7 @@ To start the game just press the SpaceBar that gonna make the character jump. th
 - Twitter: [@twitterhandle](https://twitter.com/cruzsammit)
 - Linkedin: [linkedin](https://www.linkedin.com/in/brian-sammit-cruz-rodriguez-5877551a8/)
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions, issues and feature requests are welcome!
 
@@ -93,7 +94,7 @@ Give a ⭐️ if you like this project!
 - Rails guides
 - Microverse
 
-## 📝 License
+## License
 
 This project is [MIT](lic.url) licensed.![]
 
