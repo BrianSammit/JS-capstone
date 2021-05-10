@@ -33,7 +33,7 @@
 
 ## Live demo
 
-[live demo](https://nifty-ritchie-c59fcf.netlify.app/)
+[live demo](https://romantic-joliot-b264c4.netlify.app/)
 
 ## About The Project
 
