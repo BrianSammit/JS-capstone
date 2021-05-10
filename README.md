@@ -15,6 +15,7 @@
 
 - [About the Project](#about-the-project)
   - [Built With](#built-with)
+- [Game Design](#Game-Design)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
 - [How to test it](#How-to-play)
@@ -45,6 +46,40 @@ This project consists of an endless runner game. Made on phaser 3 I made a full 
 - Jest
 - CSS
 - HTML
+
+## Game Design
+
+### Introduction
+
+I was requested to build an endless run game, with different scenes. The game consists on go as far as you can. You gain a point for every second you are with life.
+
+### Story and Gameplay
+
+### Objective
+
+- Go as far as you can.
+
+### Assets
+
+I tried to find good matches for this game, the audios are from an 8-bit version of some Jonas Brothers songs, I create the background and try to match everything to pink which is the predominant color. The images come from Opengameart, and I did some modifications to them.
+
+#### Character
+
+| Asset                                      | character |
+| ------------------------------------------ | --------- |
+| ![Zombie](dist/assets/animation/Idle1.png) | Zombie    |
+
+### Controls
+
+- Press ⬆️ to move up
+- Press ⬇️ to move down
+- Press ➡️ to go right
+- Press ⬅️ to go left
+
+### Controls in Battle
+
+- Press ⬆️ or ⬇️ to select who you are going to attack
+- Press Space to attack
 
 ## Getting Started
 
