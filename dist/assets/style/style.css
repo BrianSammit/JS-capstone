@@ -48,7 +48,7 @@ input[name="saveNameBtn"] {
   position: relative;
   cursor: pointer;
   border: none;
-  background-image: url(/dist/assets/play_button.png);
+  background-image: url(../play_button.png);
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 15px;
@@ -71,7 +71,7 @@ input[name="back"] {
   position: relative;
   cursor: pointer;
   border: none;
-  background-image: url(/dist/assets/home_button.jpg);
+  background-image: url(../home_button.jpg);
   background-size: auto;
   background-repeat: no-repeat;
   border-radius: 15px;
