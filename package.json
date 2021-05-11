@@ -1,0 +1,82 @@
+{
+  "name": "js-capstone",
+  "version": "1.0.0",
+  "description": "This is a endless run game",
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "setupFiles": [
+      "jest-canvas-mock"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/test/mocks/styleMock.js",
+      "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/mocks/fileMock.js"
+    },
+    "modulePathIgnorePatterns": [
+      "<rootDir>/externals"
+    ]
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@babel/preset-env": "^7.14.1",
+    "axios": "^0.21.1",
+    "babel": "^6.23.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3",
+    "jest-expect-subclass": "^1.0.1",
+    "phaser": "^3.54.0",
+    "regenerator-runtime": "^0.13.7",
+    "serve": "^11.3.2",
+    "stylelint": "^13.13.0",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.19.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.1",
+    "babel-core": "6",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "7.0.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "jest-canvas-mock": "^2.3.1",
+    "raw-loader": "^0.5.1",
+    "serve": "^11.3.2",
+    "stylelint": "^13.13.0",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.19.0",
+    "webpack": "^3.4.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^2.11.0"
+  },
+
+  "scripts": {
+    "test": "jest",
+    "jest-watch": "jest --watch",
+    "watch": "webpack --watch",
+    "dev": "webpack ",
+    "build": "webpack ",
+    "start": "npm run build && webpack-dev-server --port=8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrianSammit/JS-capstone.git"
+  },
+  "author": "Brian Sammit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrianSammit/JS-capstone/issues"
+  },
+  "homepage": "https://github.com/BrianSammit/JS-capstone#readme"
+}
