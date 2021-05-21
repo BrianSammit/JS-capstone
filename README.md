@@ -33,7 +33,7 @@
 
 ## Live demo
 
-[live demo](https://romantic-joliot-b264c4.netlify.app/)
+[live demo](https://vigilant-gates-d054fa.netlify.app/)
 
 ## About The Project
 
